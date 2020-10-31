@@ -5,7 +5,7 @@ note
 		Place your own classes in cluster model (recursive).
 		There is no precompile.
 	]"
-	author: "JSO"
+	author: "nevess99"
 	date: "$Date$"
 	revision: "$Revision$"
 
@@ -14,9 +14,7 @@ class
 
 inherit
 
-	ARGUMENTS_32
-
-	ES_SUITE -- testing via ESpec
+	ES_SUITE -- FOR UNIT TESTING
 
 create
 	make
@@ -25,9 +23,12 @@ feature {NONE} -- Initialization
 
 	make
 			-- Run app
+		local
+			bb: BIRTHDAY_BOOK
 		do
-			print ("Hello EECS: void safe Eiffel project for 19.05!%N")
-			add_test (create {TEST_EXAMPLE}.make) --suite of tests
+			add_test (create {TEST_BIRTHDAY_BOOK}.make)
+			add_test (create {TEST_LIBRARY}.make)
+			add_test (create {TEST_BIRTHDAY}.make) --suite of tests
 			show_browser
 			run_espec
 		end
